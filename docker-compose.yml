@@ -10,4 +10,4 @@ services:
     networks:
       - backend
 networks:
-  backend
+  backend:
