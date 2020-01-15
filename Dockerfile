@@ -1,8 +1,10 @@
-FROM openjdk:8-jdk-alpin as build
+FROM openjdk:8 as build
 WORKDIR /app
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
+USER ROOT
+RUN ["chmod", "+x", "executable.sh"]
 RUN ./mvnw dependency:go-offline -B
 
 COPY src src
